@@ -4,7 +4,13 @@ pipeline{
         stage("TF Init"){
             steps{
                 echo "Executing Terraform Init"
-                print "terraform init" 
+                sh '''
+                    cd /var/lib/jenkins/workspace/DevOps_Play_Avi
+                    dir 
+                    terraform help
+                    terraform --version
+                    aws --version
+                '''
             }
         }
         stage("TF Validate"){
