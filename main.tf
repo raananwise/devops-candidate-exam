@@ -60,7 +60,7 @@ resource "aws_route_table_association" "PrivateRoute2" {
 }
 
 
-resource "aws_iam_policy" "Ec2LaunchPolicy" {
+resource "aws_iam_policy" "Ec2LaunchPolicy_Avi" {
 
 name = "Ec2LaunchPolicy_Avi"
 policy = <<EOF
@@ -81,4 +81,9 @@ policy = <<EOF
 EOF
 
 
+}
+
+resource "aws_iam_role_policy_attachment" "Ec2LaunchPolicy_Avi" {
+  role       = "arn:aws:sts::007974164823:assumed-role/jenkins-role/i-0e71d6821854db9d0"
+  policy_arn = aws_iam_policy.Ec2LaunchPolicy_Avi.arn
 }
