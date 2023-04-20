@@ -59,3 +59,26 @@ resource "aws_route_table_association" "PrivateRoute2" {
   route_table_id = aws_route_table.PrivateRouteTable.id
 }
 
+
+resource "aws_iam_policy" "Ec2LaunchPolicy" {
+
+name = "Ec2LaunchPolicy_Avi"
+policy = <<EOF
+{
+  
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+            "iam:PassRole",
+            "iam:ListInstanceProfiles",
+            "ec2:*"
+        ],
+        "Resource": "*"
+    }]
+}
+   
+EOF
+
+
+}
