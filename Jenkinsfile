@@ -7,9 +7,9 @@ pipeline{
                 sh '''
                     cd /var/lib/jenkins/workspace/DevOps_Play_Avi
                     dir 
-                    terraform help
                     terraform --version
                     aws --version
+                    terraform init
                 '''
             }
         }
