@@ -4,7 +4,7 @@ data "aws_availability_zones" "available" {}
 
 resource "aws_vpc" "vpc" {
 
-  cidr_block = "10.0.0.0/16"
+  cidr_block = "10.10.0.0/16"
   tags = {
     Name = "Avi_VPC"
   }
@@ -23,7 +23,7 @@ resource "aws_internet_gateway" "vpc" {
 
 resource "aws_subnet" "PrivateSubnet1" {
 
-  cidr_block        = "10.0.1.0/24"
+  cidr_block        = "110.10.4.0/24"
   vpc_id            = data.aws_vpc.vpc.id
   availability_zone = data.aws_availability_zones.available.names[0]
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "PrivateSubnet1" {
 
 resource "aws_subnet" "PrivateSubnet2" {
 
-  cidr_block        = "10.0.2.0/24"
+  cidr_block        = "10.10.5.0/24"
   vpc_id            = data.aws_vpc.vpc.id
   availability_zone = data.aws_availability_zones.available.names[1]
 
