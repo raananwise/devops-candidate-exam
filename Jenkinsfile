@@ -34,6 +34,10 @@ pipeline{
         stage("TF Apply"){
             steps{
                 echo "Executing Terraform Apply"
+                sh '''
+                    cd /var/lib/jenkins/workspace/DevOps_Play_Avi
+                    terraform apply --auto-approve
+                '''
             }
         }
         stage("Invoke Lambda"){
